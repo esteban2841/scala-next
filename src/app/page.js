@@ -23,6 +23,7 @@ export default function Home() {
           w-auto 
         "
       />
+      
 
       {/* <Image
         src="/assets/logos/scala_logo_v1_white.png"
