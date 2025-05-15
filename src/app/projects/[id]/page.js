@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import Footer from "@/components/organisms/Footer";
-import { RxArrowUp } from "react-icons/rx";
 import { use } from "react";
 import Image from "next/image";
 import { projects } from "@/data/content";

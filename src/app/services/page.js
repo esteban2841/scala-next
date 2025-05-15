@@ -1,12 +1,22 @@
 // app/services/page.js
 "use client";
+import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import CategoryTabs from "@/components/molecules/CategoryTabs";
 import Footer from "@/components/organisms/Footer";
 import { services } from "@/data/content";
 
 
-export default function ServicesPage() {
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Cargando proyectos…</div>}>
+      <ServicesPage />
+    </Suspense>
+  )
+}
+
+
+function ServicesPage() {
   const router = useRouter();
   const params = useSearchParams();
   const rawCategory = params.get("category") || "";

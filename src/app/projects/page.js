@@ -1,11 +1,21 @@
-"use client";
+'use client'
+import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Footer from "@/components/organisms/Footer";
 import CategoryTabs from "@/components/molecules/CategoryTabs";
 import ProjectsGrid from "@/components/molecules/ProjectsGrid";
 import {projects} from "@/data/content";
 
-export default function ProjectGallery() {
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Cargando proyectos…</div>}>
+      <ProjectGallery />
+    </Suspense>
+  )
+}
+
+function ProjectGallery() {
   const router       = useRouter();
   const searchParams = useSearchParams();
   const rawCategory  = searchParams.get("category") || "";
