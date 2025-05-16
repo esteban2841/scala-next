@@ -23,7 +23,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TabMenu className="absolute w-full justify-end right-3" filter="dark" />
 
         {children}
       </body>
