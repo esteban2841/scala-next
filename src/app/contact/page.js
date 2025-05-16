@@ -155,7 +155,7 @@ export default function ContactPage() {
             name="email"
             placeholder="Mail"
             required
-            className="p-4 bg-secondary rounded-md"
+            className="p-4 bg-secondary text-primary rounded-md"
           />
           <ValidationError prefix="Email" field="email" errors={state.errors} />
 
@@ -174,7 +174,7 @@ export default function ContactPage() {
             placeholder="Message"
             required
             rows={6}
-            className="p-4 bg-secondary rounded-md sm:col-span-2"
+            className="p-4 bg-secondary text-primary rounded-md sm:col-span-2"
           />
           <ValidationError
             prefix="Message"
