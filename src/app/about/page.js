@@ -6,57 +6,46 @@ import Image from "next/image";
 import Footer from "@/components/organisms/Footer";
 import TabMenu from "@/components/molecules/TabMenu";
 
-const visionTextLeft = `Scala is a groundbreaking design firm that
+const visionTextLeft = `Imagine stepping into a space that resonates with your very essence, an environment where every line,
+every texture, tells a story of intention and beauty. This is the promise of Scala. Since 1996, we&#39;ve been
+more than creators of architectural solutions; we&#39;ve been storytellers in steel, light, and form, shaping
+the backdrops for countless lives across the globe.
+In 2022, fueled by a desire to deepen our impact, Scala embraced a powerful evolution. Like a sculptor
+refining their masterpiece, we sharpened our focus, amplifying our commitment to crafting spaces that
+not only serve a purpose but also stir the soul.`;
 
-transcends conventional interior design. With an
-
-innovative approach and a strong portfolio, we
-
-redefine spaces by thinking outside the box.
-
-Through strategic partnerships with international vendors, we offer cutting-edge solutions that
-
-blend creativity, elegance, and functionality.`;
-
-const visionTextRight = `Scala is more than just a design firm—it’s a movement redefining interior and exterior spaces.
-
-With a strategic approach, an unmatched portfolio, and a compelling digital presence, we are
-
-set to become a leader in commercial and residential interior design. Our website will be the
-
-gateway to showcasing our vision and attracting
-
-high-value clients.`;
+const visionTextRight = `Today, Scala is a vibrant movement—a collective of visionary designers, artists, and thinkers united by
+the belief that extraordinary spaces have the power to inspire, connect, and endure. We don&#39;t just see
+buildings or interiors—we envision the experiences they will hold, the memories they will frame.
+Step into the world of Scala, where our vision goes beyond simple design. We meticulously consider the
+soul of every space, hand-selecting materials that tell stories of quality and intention, and imbue each
+project with a profound sense of purpose. Here, spaces are not simply transformed, they are cultivated
+into immersive experiences that elevate the very fabric of everyday life.`;
 
 const values = [
   {
     id: "I.",
-    title: "Elegance & Innovation",
-    description: `We seamlessly merge artistry and engineering
-to deliver refined, forward-thinking interiors
-that set cutting-edge standards.`,
+    title: "Creativity: The Unfolding of Innovation",
+    description: `For us, design is a dance of imagination, a constant exploration of what could be. We push beyond the
+familiar, seeking innovative solutions that are both strikingly beautiful and exceptionally functional. We
+believe that true artistry lies in the courage to reimagine the world around us.`,
   },
   {
     id: "II.",
-    title: "Creative Team",
-    description: `Our multidisciplinary team thrives on creativity,
-passion and expertise, pushing boundaries
-to craft spaces that inspire.`,
+    title: "Sustainability: Designing in Harmony with the Future",
+    description: `Our commitment to the planet runs through every line we draw. We believe in creating spaces that not
+only enhance the present but also honor the future. Sustainability is not a trend; it;s a fundamental
+principle guiding our material choices, construction methods, and enduring vision.`,
   },
   {
     id: "III.",
-    title: "Global Reach",
-    description: `With international partnerships and deep local
-understanding, we deliver world-class designs
-tailored to each cultural context.`,
-  },
-  {
-    id: "IV.",
-    title: "Seamless Execution",
-    description: `From concept to completion, we ensure flawless
-project management and top-quality finishes
-that exceed expectations.`,
-  },
+    title: "Client-Centricity: Your Narrative, Our Expertise",
+    description: `At the core of Scala is a deep and abiding respect for you, our client. We listen with intent, collaborate
+with passion, and tailor our expertise to bring your unique narrative to life in the spaces we create. Your
+dreams are the compass that guides our design journey.
+Join us at Scala, where we believe that every space has a story to tell—and we are the artists dedicated
+to bringing those stories to life with beauty, intention, and meaningful impact.`,
+  }
 ];
 
 const teamMembers = [
@@ -152,7 +141,7 @@ export default function AboutPage() {
         </p>
         <div className="bg-secondary py-4 mb-12 -mx-4 sm:-mx-6 lg:-mx-20">
           <span className="text-base sm:text-8xl lg:text-4xl font-bold text-primary">
-            A New Vision for Interior Design & Housing Solutions
+            Where Spaces Inspire and Transformation Takes Form
           </span>
         </div>
       </section>
@@ -174,7 +163,7 @@ export default function AboutPage() {
             height={50}
             className="rotate-180"
           />
-          <h2 className="text-3xl sm:text-5xl font-bold">Our Values</h2>
+          <h2 className="text-3xl sm:text-5xl font-bold">The Heart of Our Craft: Our Guiding Values</h2>
         </div>
         <hr className="border-y-2 border-gray-700 mb-10" />
 
@@ -187,7 +176,7 @@ export default function AboutPage() {
               <span className="font-bold text-4xl">{v.id}</span>
               <div className="flex flex-col justify-end items-end">
                 <h3 className="text-xl font-semibold">{v.title}</h3>
-                <p className="mt-2 text-base leading-relaxed">
+                <p className="mt-2 text-base text-right leading-relaxed">
                   {v.description}
                 </p>
               </div>
