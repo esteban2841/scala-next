@@ -12,7 +12,6 @@ export default function ContactPage() {
   if (state.succeeded) {
     return (
       <div className="bg-primary text-secondary min-h-screen font-primary px-4 sm:px-6 lg:px-20 py-5">
-        {/* You can keep your header/hero/etc here if you like */}
         <p className="text-center text-2xl text-green-400">
           Thanks for reaching out! We’ve received your message.
         </p>
@@ -61,7 +60,7 @@ export default function ContactPage() {
           {/* Sara */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/assets/contact/sara-munoz.jpg"
+              src="/assets/contact/sara-munoz.png"
               alt="Sara Muñoz"
               width={200}
               height={200}
@@ -76,7 +75,7 @@ export default function ContactPage() {
           {/* Felipe */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/assets/contact/felipe-romero.jpg"
+              src="/assets/contact/felipe-romero.png"
               alt="Felipe Romero"
               width={200}
               height={200}
@@ -91,7 +90,7 @@ export default function ContactPage() {
           {/* Esteban */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/assets/contact/esteban-marin.jpg"
+              src="/assets/contact/esteban-marin.png"
               alt="Esteban Marin"
               width={200}
               height={200}
@@ -106,7 +105,7 @@ export default function ContactPage() {
           {/* Juan */}
           <div className="flex flex-col items-center text-center">
             <Image
-              src="/assets/contact/juan-cortes.jpg"
+              src="/assets/contact/juan-cortes.png"
               alt="Juan Cortes"
               width={200}
               height={200}
@@ -143,7 +142,7 @@ export default function ContactPage() {
             name="name"
             placeholder="Name"
             required
-            className="p-4 bg-secondary rounded-md"
+            className="p-4 bg-secondary text-primary rounded-md"
           />
 
           <ValidationError prefix="Name" field="name" errors={state.errors} />
