@@ -8,7 +8,7 @@ import { menuItems } from "@/data/content";
 
 
 
-export default function TabMenu({ className = "" }) {
+export default function TabMenu({ className = "", style= "secondary" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [expanded, setExpanded] = useState(null);
 
@@ -35,7 +35,7 @@ export default function TabMenu({ className = "" }) {
           icon={isOpen ? RxCross2 : RxHamburgerMenu}
           label={isOpen ? "Cerrar menú" : "Menú"}
           onClick={toggleMenu}
-          className="text-primary filter z-50 hover:brightness-90 transition"
+          className={`text-${style} filter z-50 hover:brightness-90 transition`}
         />
       </div>
 
@@ -60,7 +60,7 @@ export default function TabMenu({ className = "" }) {
                 {item.subItems ? (
                   <button
                     onClick={() => toggleExpand(item.label)}
-                    className="flex items-center text-white text-4xl font-semibold hover:text-primary transition"
+                    className="flex items-center text-white text-2xl sm:text-3xl md:text-4xl  font-semibold hover:text-primary transition"
                   >
                     {item.label}
                     <RxChevronDown
@@ -73,7 +73,7 @@ export default function TabMenu({ className = "" }) {
                 ) : (
                   <a
                     onClick={() => handleLinkClick(item.href)}
-                    className="text-white text-4xl font-semibold hover:text-primary transition cursor-pointer"
+                    className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold hover:text-primary transition cursor-pointer"
                   >
                     {item.label}
                   </a>
@@ -91,7 +91,7 @@ export default function TabMenu({ className = "" }) {
                       <li key={sub.label} className="p-0 m-0 list-none">
                         <a
                           onClick={() => handleLinkClick(sub.href)}
-                          className="text-white text-2xl font-medium hover:text-primary transition cursor-pointer"
+                          className="text-white text-xl md:text-2xl font-medium hover:text-primary transition cursor-pointer"
                         >
                           {sub.label}
                         </a>

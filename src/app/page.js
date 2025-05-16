@@ -3,10 +3,15 @@ import { home } from "@/data/content";
 import Carrusel from "@/components/molecules/Carrusel";
 import RedesSociales from "@/components/molecules/RedesSociales";
 import Image from "next/image";
+import TabMenu from "@/components/molecules/TabMenu";
 
 export default function Home() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen">
+      <TabMenu
+        className="absolute w-full justify-end right-3 top-3"
+        style="primary"
+      />
       <Carrusel slides={home.slides} interval={6000} className="absolute z-0" />
       <RedesSociales
         className={"absolute z-10  bottom-4 right-8 flex"}
@@ -23,7 +28,6 @@ export default function Home() {
           w-auto 
         "
       />
-      
 
       {/* <Image
         src="/assets/logos/scala_logo_v1_white.png"

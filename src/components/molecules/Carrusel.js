@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Boton from "../atoms/Boton";
+import { useRouter } from "next/navigation";
 
 export default function Carrusel({
   slides = [],
@@ -9,6 +10,7 @@ export default function Carrusel({
   className = "",
 }) {
   const [current, setCurrent] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     if (!slides.length) return;
@@ -28,7 +30,7 @@ export default function Carrusel({
           transform: `translateX(-${current * 100}%)`, 
         }}
       >
-        {slides.map(({ src, subtitle, title }, idx) => (
+        {slides.map(({ src, subtitle, title, href }, idx) => (
           <div key={idx} className="relative w-full h-full flex-shrink-0">
             <Image
               src={src}
@@ -40,7 +42,7 @@ export default function Carrusel({
             <div className="absolute inset-0 bg-black/30 z-10" />
             <div className="absolute top-1/3 left-0 right-16 z-20 text-white">
               {subtitle && (
-                <p className="uppercase ml-8 tracking-wide text-xs sm:text-sm md:text-base mb-2 sm:mb-4">
+                <p className="uppercase ml-9 tracking-wide text-xs sm:text-sm md:text-base mb-2 sm:mb-3">
                   {subtitle}
                 </p>
               )}
@@ -50,7 +52,7 @@ export default function Carrusel({
                 </h2>
               )}
               <div className="hidden md:block w-80 h-1 rounded bg-white mb-4" />
-              <Boton className="w-24 h-8 sm:w-32 sm:h-10 md:w-40 md:h-12 lg:w-48 lg:h-14">
+              <Boton className="w-24 h-8 sm:w-32 sm:h-10 md:w-40 md:h-12 lg:w-48 lg:h-14" onClick={() => router.push(href)}>
                 Dive in
               </Boton>
             </div>

@@ -4,6 +4,7 @@ import React from "react";
 import Footer from "@/components/organisms/Footer";
 import Image from "next/image";
 import { useForm, ValidationError } from "@formspree/react";
+import TabMenu from "@/components/molecules/TabMenu";
 
 export default function ContactPage() {
 
@@ -21,6 +22,7 @@ export default function ContactPage() {
   }
   return (
     <div className="bg-primary text-secondary min-h-screen px-4 sm:px-6 lg:px-20 py-5">
+      <TabMenu className="absolute w-full justify-end right-3"/>
       {/* Title Section */}
       <section className="mb-8">
         <div className="flex items-center">

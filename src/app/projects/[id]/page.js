@@ -3,8 +3,10 @@
 import { useRouter } from "next/navigation";
 import Footer from "@/components/organisms/Footer";
 import { use } from "react";
+import EmptyCarrusel from "@/components/molecules/EmptyCarrusel";
 import Image from "next/image";
 import { projects } from "@/data/content";
+import TabMenu from "@/components/molecules/TabMenu";
 
 export default function Page({ params }) {
   const router = useRouter();
@@ -19,17 +21,18 @@ export default function Page({ params }) {
 
   return (
     <div className="bg-primary text-secondary min-h-screen px-4 sm:px-6 lg:px-20 py-5">
+      <TabMenu className="absolute w-full justify-end right-3"/>
       {/* Title Section */}
       <section className="mb-8">
         <section className="mb-8">
           <div className="flex items-center">
             {/* the dash */}
-            <span className="text-3xl sm:text-5xl font-bold mr-4 leading-none">
+            <span className="text-xl sm:text-3xl font-bold mr-4 leading-none">
               ■
             </span>
 
             {/* your title */}
-            <h1 className="text-4xl sm:text-8xl font-bold">{project.title}</h1>
+            <h1 className="text-2xl sm:text-8xl font-bold">{project.title}</h1>
 
             {/* the line that fills the rest of the row */}
             <hr className="ml-6 flex-1 border-t-2 border-secondary" />
@@ -71,6 +74,8 @@ export default function Page({ params }) {
           height={40}
           className="
             w-6 h-6
+            hidden
+            sm:block
             sm:w-8 sm:h-8
             md:w-16 md:h-16
             lg:w-20 lg:h-20
@@ -78,24 +83,33 @@ export default function Page({ params }) {
             rotate-180
           "
         />
-        <p className="mb-4 font-primary leading-loose text-xl">
+        <p className="mb-4 font-primary leading-loose text-base sm:text-xl">
           {project.description1}
         </p>
       </section>
 
-      {/* Gallery Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-20 mb-12">
+      {/* ← Gallery Section */}
+      {/* Mobile: show carousel */}
+      <div className="sm:hidden mb-12">
+        <EmptyCarrusel
+          slides={project.images.map((src) => ({ src }))}
+          interval={5000}
+        />
+      </div>
+
+      {/* Desktop+Tablet: show grid */}
+      <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-20 mb-12">
         {project.images.map((src, idx) => (
           <img
             key={idx}
             src={src}
             alt={`${project.title} ${idx + 1}`}
-            className="w-full h-auto"
+            className="w-full h-auto object-cover"
           />
         ))}
-      </section>
+      </div>
       <section className="mb-8">
-        <p className="text-xl font-primary text-secondary leading-loose text-justify">
+        <p className="text-base sm:text-xl font-primary text-secondary leading-loose text-justify">
           {project.description2}
         </p>
       </section>
@@ -119,7 +133,7 @@ export default function Page({ params }) {
             className="w-full h-auto"
           />
           <div className="absolute inset-0 bg-secondary bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <span className="text-5xl md:text-4xl lg:text-8xl text-center font-primary font-bold text-primary text-wrap">
+            <span className="text-2xl md:text-4xl lg:text-8xl text-center font-primary font-bold text-primary text-wrap">
               Previous Project
             </span>
           </div>
@@ -134,7 +148,7 @@ export default function Page({ params }) {
             className="w-full h-auto"
           />
           <div className="absolute inset-0 bg-secondary bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <span className="text-5xl md:text-4xl lg:text-8xl text-center font-primary font-bold text-primary text-wrap">
+            <span className="text-2xl md:text-4xl lg:text-8xl text-center font-primary font-bold text-primary text-wrap">
               Next Project
             </span>
           </div>
