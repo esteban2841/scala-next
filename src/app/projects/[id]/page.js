@@ -32,10 +32,10 @@ export default function Page({ params }) {
             </span>
 
             {/* your title */}
-            <h1 className="text-2xl sm:text-8xl font-bold">{project.title}</h1>
+            <h1 className="text-2xl lg:text-6xl font-bold">{project.title}</h1>
 
             {/* the line that fills the rest of the row */}
-            <hr className="ml-6 flex-1 border-t-2 border-secondary" />
+            <hr className="ml-6 flex-1 border-0 md:border-t-2 border-secondary" />
           </div>
         </section>
         <div className="-mx-4 sm:-mx-6 lg:-mx-20 mb-10">
