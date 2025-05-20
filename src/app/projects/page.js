@@ -6,6 +6,8 @@ import CategoryTabs from "@/components/molecules/CategoryTabs";
 import ProjectsGrid from "@/components/molecules/ProjectsGrid";
 import { projects } from "@/data/content";
 import TabMenu from "@/components/molecules/TabMenu";
+import Image from "next/image";
+import NavButtons from "@/components/molecules/NavButtons";
 
 export default function Page() {
   return (
@@ -43,8 +45,15 @@ function ProjectGallery() {
 
   return (
     <div className="relative flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-20 py-5">
+      <Image
+        src="/assets/logos/scala_logo_v1_black.svg"
+        alt="Scala Logo"
+        className="absolute top-3 left-5 w-auto h-14 sm:left-10 sm:h-26"
+        width={64}
+        height={64}
+      />
       <TabMenu className="absolute w-full justify-end right-3" />
-      <section className="py-8 w-full">
+      <section className="py-8 w-full mt-10">
         <CategoryTabs
           categories={projects.categories}
           active={activeTab}
@@ -52,38 +61,19 @@ function ProjectGallery() {
         />
 
         <hr className="border-t border-gray-300 mb-10" />
-
-        <ProjectsGrid projects={filtered} />
+        <div className="flex items-center justify-center w-full mb-10 ">
+          <ProjectsGrid projects={filtered} />
+        </div>
 
         {/* ─── BOTONES DE NAVEGACIÓN ENTRE TABS ───────────────────────────────── */}
-        <div className="flex justify-center space-x-4 mt-8 w-full">
-          {prevTab && (
-            <button
-              onClick={() => handleTabChange(prevTab)}
-              className="px-4 py-2 bg-secondary text-primary rounded hover:bg-secondary/80 transition"
-            >
-              ← {prevTab}
-            </button>
-          )}
-          <button
-            onClick={() =>
-              router.push(`/services?category=${activeTab.toLowerCase()}`)
-            }
-            className="px-4 py-2 bg-secondary text-primary rounded hover:bg-secondary/80 transition"
-          >
-            Check out our {activeTab.toLowerCase()} services
-          </button>
-          {nextTab && (
-            <button
-              onClick={() => handleTabChange(nextTab)}
-              className="px-4 py-2 bg-secondary text-primary rounded hover:bg-secondary/80 transition"
-            >
-              {nextTab} →
-            </button>
-          )}
-        </div>
+        <NavButtons
+          prevTab={prevTab}
+          nextTab={nextTab}
+          activeTab={activeTab}
+          handleTabChange={handleTabChange}
+          router={router}
+        />
       </section>
-
       <Footer classname="w-full" />
     </div>
   );

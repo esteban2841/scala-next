@@ -6,10 +6,20 @@ export default function Boton({
   height = 50,
   onClick,
   className,
-  // Color base del botón
   color = "#E2E0D9",
 }) {
+  const cornerRadius = 4;
   const maskId = `mask-${label.replace(/\s+/g, "-")}`;
+  const curveStart = width - cornerRadius;
+  const roundedRectPath = `
+    M0,0 
+    H${curveStart} 
+    a${cornerRadius},${cornerRadius} 0 0 1 ${cornerRadius},${cornerRadius}
+    V${height - cornerRadius}
+    a${cornerRadius},${cornerRadius} 0 0 1 -${cornerRadius},${cornerRadius}
+    H0 
+    Z
+  `;
 
   return (
     <div>
@@ -21,25 +31,8 @@ export default function Boton({
         style={{ cursor: onClick ? "pointer" : "default" }}
       >
         <defs>
-          <mask
-            id={maskId}
-            maskUnits="userSpaceOnUse"
-            maskContentUnits="userSpaceOnUse"
-            x="0"
-            y="0"
-            width={width}
-            height={height}
-          >
-            {/* Blanco = opaco, texto negro = hueco */}
-            <rect
-              x="0"
-              y="0"
-              width={width}
-              height={height}
-              rx="4"
-              ry="4"
-              fill="white"
-            />
+          <mask id={maskId} maskUnits="userSpaceOnUse">
+            <path d={roundedRectPath} fill="white" />
             <text
               x="50%"
               y="50%"
@@ -54,39 +47,21 @@ export default function Boton({
             </text>
           </mask>
         </defs>
-
-        {/* Fondo base masked para letras recortadas */}
         <g mask={`url(#${maskId})`}>
-          <rect
-            x="0"
-            y="0"
-            width={width}
-            height={height}
-            rx="4"
-            ry="4"
-            fill={color}
-          />
+          <path d={roundedRectPath} fill={color} />
         </g>
-
-        {/* Overlay deslizable más oscuro, también masked */}
         <g mask={`url(#${maskId})`}>
-          <rect
-            x="0"
-            y="0"
-            width={width}
-            height={height}
-            rx="4"
-            ry="4"
+          <path
+            d={roundedRectPath}
             fill={color}
             style={{ filter: "brightness(90%)" }}
-            className={
-              `
+            className="
               -translate-x-full
               group-hover:translate-x-0
               transition-transform
               duration-500
               ease-in-out
-            `}
+            "
           />
         </g>
       </svg>

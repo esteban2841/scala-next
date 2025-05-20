@@ -1,0 +1,197 @@
+export const projects = {
+  categories: ["Residential", "Commercial", "Housing", "Visualization"],
+  allProjects: [
+    {
+      title: "MB Kitchen",
+      location: "Los Angeles, United States",
+      img: "/assets/projects/Project1.png",
+      category: "Residential",
+      route: "/projects/mb-kitchen",
+    },
+    {
+      title: "Qargo Coffee Office",
+      location: "Bogotá, Colombia",
+      img: "/assets/projects/Project2.png",
+      category: "Residential",
+      route: "/projects/qargo-coffee-office",
+    },
+    {
+      title: "Tashan",
+      location: "Irving TX, United States",
+      img: "/assets/projects/Project3.png",
+      category: "Commercial",
+      route: "/projects/tashan",
+    },
+    {
+      title: "MB Backyard",
+      location: "Los Angeles, United States",
+      img: "/assets/projects/Project4.png",
+      category: "Commercial",
+      route: "/projects/mb-backyard",
+    },
+    {
+      title: "Office",
+      location: "Miami, United States",
+      img: "/assets/projects/Project5.png",
+      category: "Housing",
+      route: "/projects/office",
+    },
+    {
+      title: "Jashan",
+      location: "Plano TX, United States",
+      img: "/assets/projects/Project6.png",
+      category: "Housing",
+      route: "/projects/jashan",
+    },
+    {
+      title: "Stand Alone Drive Thru",
+      location: "Washington D.C, United States",
+      img: "/assets/projects/Project7.png",
+      category: "Visualization",
+      route: "/projects/stand-alone-drive-thru",
+    },
+    {
+      title: "MB Kitchen",
+      location: "Los Angeles, United States",
+      img: "/assets/projects/Project1.png",
+      category: "Visualization",
+      route: "/projects/mb-kitchen",
+    },
+    {
+      title: "Qargo Coffee Office",
+      location: "Bogotá, Colombia",
+      img: "/assets/projects/Project2.png",
+      category: "Visualization",
+      route: "/projects/qargo-coffee-office",
+    },
+    {
+      title: "Qargo Coffee Store",
+      location: "Las Vegas NV, United States",
+      img: "/assets/projects/Project8.png",
+      category: "Visualization",
+      route: "/projects/qargo-coffee-store",
+    },
+
+    // --- Randomized sample data for each category ---
+    // Residential (add up to 12)
+    ...Array.from({ length: 10 }, (_, i) => ({
+      title: `Residential Sample ${i + 1}`,
+      location: `Sample City ${i + 1}, Country`,
+      img: [
+        "/assets/projects/Project1.png",
+        "/assets/projects/Project2.png",
+        "/assets/projects/Project3.png",
+        "/assets/projects/Project4.png",
+        "/assets/projects/Project5.png",
+        "/assets/projects/Project6.png",
+        "/assets/projects/Project7.png",
+        "/assets/projects/Project8.png",
+      ][i % 8],
+      category: "Residential",
+      route: `/projects/residential-sample-${i + 1}`,
+    })),
+
+    // Commercial (add up to 10)
+    ...Array.from({ length: 8 }, (_, i) => ({
+      title: `Commercial Sample ${i + 1}`,
+      location: `Business District ${i + 1}, Country`,
+      img: [
+        "/assets/projects/Project3.png",
+        "/assets/projects/Project4.png",
+        "/assets/projects/Project5.png",
+        "/assets/projects/Project6.png",
+        "/assets/projects/Project7.png",
+        "/assets/projects/Project8.png",
+        "/assets/projects/Project1.png",
+        "/assets/projects/Project2.png",
+      ][i % 8],
+      category: "Commercial",
+      route: `/projects/commercial-sample-${i + 1}`,
+    })),
+
+    // Housing (add up to 9)
+    ...Array.from({ length: 7 }, (_, i) => ({
+      title: `Housing Sample ${i + 1}`,
+      location: `Neighborhood ${i + 1}, Country`,
+      img: [
+        "/assets/projects/Project5.png",
+        "/assets/projects/Project6.png",
+        "/assets/projects/Project7.png",
+        "/assets/projects/Project8.png",
+        "/assets/projects/Project1.png",
+        "/assets/projects/Project2.png",
+        "/assets/projects/Project3.png",
+        "/assets/projects/Project4.png",
+      ][i % 8],
+      category: "Housing",
+      route: `/projects/housing-sample-${i + 1}`,
+    })),
+
+    // Visualization (add up to 11)
+    ...Array.from({ length: 9 }, (_, i) => ({
+      title: `Visualization Sample ${i + 1}`,
+      location: `Visualization City ${i + 1}, Country`,
+      img: [
+        "/assets/projects/Project7.png",
+        "/assets/projects/Project8.png",
+        "/assets/projects/Project1.png",
+        "/assets/projects/Project2.png",
+        "/assets/projects/Project3.png",
+        "/assets/projects/Project4.png",
+        "/assets/projects/Project5.png",
+        "/assets/projects/Project6.png",
+      ][i % 8],
+      category: "Visualization",
+      route: `/projects/visualization-sample-${i + 1}`,
+    })),
+  ],
+  projectDetails: {
+    tashan: {
+      title: "Tashan",
+      headerImage: "/assets/projects/tashan/tashan-hero.png",
+      year: 2025,
+      category: "Commercial",
+      client: "Mark Bastorous",
+      sqft: 400,
+      description1:
+        "This Indian restaurant interior combines traditional cultural motifs with modern elegance to create an immersive dining experience. A striking centerpiece is the living tree integrated into the space, symboli-zing nature and calm, while lantern-style lights enhance the ambiance with soft, atmospheric glow.",
+      description2:
+        "Rich purple walls and detailed floral and bird-themed panels reflect the vibrancy of Indian culture, while the sculptural wooden ceiling adds texture and acoustic warmth. Elegant seating around the central bar fosters interaction and a sense of intimacy. The design honors Indian heritage while embracing modern sensibilities, creating a unique and inviting dining space.",
+      images: [
+        "/assets/projects/tashan/tashan-group-1.png",
+        "/assets/projects/tashan/tashan-group-2.png",
+        "/assets/projects/tashan/tashan-group-3.png",
+        "/assets/projects/tashan/tashan-group-4.png",
+      ],
+      endImage: "/assets/projects/tashan/tashan-group-5.png",
+      prevRoute: "/projects/jashan",
+      nextRoute: "/projects/mb-backyard",
+      prevImage: "/assets/projects/Project8.png",
+      nextImage: "/assets/projects/Project4.png",
+    },
+    "mb-kitchen": {
+      title: "MB Kitchen",
+      headerImage: "/assets/projects/mb-kitchen/mb-kitchen-hero.png",
+      year: 2024,
+      category: "Residential",
+      client: "Mark Bastorous",
+      sqft: 200,
+      description1:
+        "This contemporary kitchen design balances elegance and functionality with a refined palette and high-end finishes. The space features warm wood cabinetry paired with creamy, marble-effect countertops and backsplash, creating a seamless and sophisticated look.",
+      description2:
+        "Gold fixtures and accents add a touch of luxury, while the sculptural LED pendant lighting introduces a bold, artistic element. The central island, framed by stylish gold bar stools, serves as both a workspace and social hub. Natural light flows in through the window, enhancing the serene and inviting atmosphere of this modern culinary space.",
+      images: [
+        "/assets/projects/mb-kitchen/mb-kitchen-group-1.png",
+        "/assets/projects/mb-kitchen/mb-kitchen-group-2.png",
+        "/assets/projects/mb-kitchen/mb-kitchen-group-3.png",
+        "/assets/projects/mb-kitchen/mb-kitchen-group-4.png",
+      ],
+      endImage: "/assets/projects/mb-kitchen/mb-kitchen-group-5.png",
+      prevRoute: "/projects/stand-alone-drive-thru",
+      nextRoute: "/projects/tashan",
+      prevImage: "/assets/projects/Project8.png",
+      nextImage: "/assets/projects/Project3.png",
+    },
+    // ...add other projects
+  },
+};

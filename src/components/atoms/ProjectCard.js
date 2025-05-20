@@ -24,7 +24,7 @@ export default function ProjectCard({ title, location, img, redirectTo }) {
           src={img}
           alt={title}
           className="
-            w-full h-full object-cover
+            object-cover object-center w-full h-full
             transition-transform duration-300 transform
             group-hover:scale-105
           "
@@ -36,6 +36,7 @@ export default function ProjectCard({ title, location, img, redirectTo }) {
         className="
           absolute inset-0
           flex flex-col justify-center items-center
+          text-center
           bg-black bg-opacity-0
           transition duration-300 transform
           group-hover:bg-opacity-40
@@ -44,19 +45,21 @@ export default function ProjectCard({ title, location, img, redirectTo }) {
       >
         <h3
           className="
-            text-3xl font-bold text-white
+            text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white
             text-wrap text-center
-            px-8
+            px-2 sm:px-4
             opacity-0 group-hover:opacity-100
             transition duration-300 transform
-            group-hover:scale-105 sm:text-3x1 md:text-3xl lg:text-4xl
+            group-hover:scale-105
+            [@media(min-width:440px)]:text-xl
+            [@media(min-width:630px)]:text-lg
           "
         >
           {title}
         </h3>
         <hr
           className="
-            border-t border-white mt-2 mb-1 w-[80%]
+            border-t border-white mt-2 mb-1 w-[60%] sm:w-[70%]
             opacity-0 group-hover:opacity-100
             transition duration-300 transform
             group-hover:scale-105
@@ -64,12 +67,13 @@ export default function ProjectCard({ title, location, img, redirectTo }) {
         />
         <p
           className="
-            text-base text-white
+            text-[10px] sm:text-xs md:text-sm lg:text-base text-white
             font-bold
             opacity-0 group-hover:opacity-100
             transition duration-300 transform
             group-hover:scale-105
-            sm:text-base md:text-base lg:text-xl
+            [@media(min-width:440px)]:text-lg
+            [@media(min-width:630px)]:text-base
           "
         >
           {location}

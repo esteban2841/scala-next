@@ -35,7 +35,7 @@ export default function TabMenu({ className = "", style= "secondary" }) {
           icon={isOpen ? RxCross2 : RxHamburgerMenu}
           label={isOpen ? "Cerrar menú" : "Menú"}
           onClick={toggleMenu}
-          className={`text-${style} filter z-50 hover:brightness-90 transition`}
+          className={`text-${style} ${isOpen? "text-white":""} filter z-50 hover:brightness-90 transition`}
         />
       </div>
 

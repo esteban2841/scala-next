@@ -27,7 +27,7 @@ export default function Carrusel({
       <div
         className="absolute inset-0 flex transition-transform duration-1000"
         style={{
-          transform: `translateX(-${current * 100}%)`, 
+          transform: `translateX(-${current * 100}%)`,
         }}
       >
         {slides.map(({ src, subtitle, title, href }, idx) => (
@@ -51,10 +51,11 @@ export default function Carrusel({
                   {title}
                 </h2>
               )}
-              <div className="hidden md:block w-80 h-1 rounded bg-white mb-4" />
-              <Boton className="w-24 h-8 sm:w-32 sm:h-10 md:w-40 md:h-12 lg:w-48 lg:h-14" onClick={() => router.push(href)}>
-                Dive in
-              </Boton>
+              <div className="hidden md:block w-80 h-1 bg-white mb-4" />
+              <Boton
+                className="w-24 h-8 sm:w-32 sm:h-10 md:w-40 md:h-12 lg:w-48 lg:h-14"
+                onClick={() => router.push(href)}
+              />
             </div>
           </div>
         ))}

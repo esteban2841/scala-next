@@ -60,7 +60,7 @@ export default function Footer({ classname = "" }) {
           {/* Logo + copy */}
           <div className="flex items-end space-x-2">
             <Image
-              src="/assets/logos/scala_logo_v1_black.png"
+              src="/assets/logos/scala_logo_v1_black.svg"
               alt="Scala Logo"
               width={100} 
               height={100} 

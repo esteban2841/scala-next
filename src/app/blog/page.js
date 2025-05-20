@@ -18,7 +18,7 @@ export default function Blog() {
             </span>
 
             {/* your title */}
-            <h1 className="text-4xl sm:text-8xl font-bold">Blog</h1>
+            <h1 className="text-4xl sm:text-7xl font-normal">Blog</h1>
 
             {/* the line that fills the rest of the row */}
             <hr className="ml-6 flex-1 border-t-2 border-secondary" />
