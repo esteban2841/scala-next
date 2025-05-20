@@ -34,69 +34,69 @@ export const about = {
       id: "III.",
       title: "Client-Centricity: Your Narrative, Our Expertise",
       description: `At the core of Scala is a deep and abiding respect for you, our client. We listen with intent, collaborate
-  with passion, and tailor our expertise to bring your unique narrative to life in the spaces we create. Your
-  dreams are the compass that guides our design journey.
-  Join us at Scala, where we believe that every space has a story to tell—and we are the artists dedicated
-  to bringing those stories to life with beauty, intention, and meaningful impact.`,
+      with passion, and tailor our expertise to bring your unique narrative to life in the spaces we create. Your
+      dreams are the compass that guides our design journey.
+      Join us at Scala, where we believe that every space has a story to tell—and we are the artists dedicated
+      to bringing those stories to life with beauty, intention, and meaningful impact.`,
     },
   ],
-
+  
   teamMembers: [
     // add your other portraits here:
     {
-      name: "Ana González",
-      role: "Architect",
-      src: "/assets/about/team/team-1.png",
-    },
-    {
-      name: "Luis Pérez",
-      role: "Engineer",
-      src: "/assets/about/team/team-2.png",
-    },
-    {
-      name: "María López",
-      role: "Designer",
-      src: "/assets/about/team/team-3.png",
-    },
-    {
-      name: "Carlos Ruiz",
-      role: "Coordinator",
-      src: "/assets/about/team/team-4.png",
-    },
-    {
-      name: "Camila Díaz",
-      role: "Consultant",
-      src: "/assets/about/team/team-5.png",
-    },
-    {
-      name: "Jorge Martínez",
-      role: "Supervisor",
-      src: "/assets/about/team/team-6.png",
-    },
-    {
-      name: "Andrés Gómez",
-      role: "Strategist",
-      src: "/assets/about/team/team-7.png",
-    },
-    {
       name: "Felipe Romero",
       role: "Construction Manager",
-      src: "/assets/about/team/team-8.png",
+      src: "/assets/about/team/our-team-1.png",
     },
     {
       name: "Sara Muñoz",
       role: "Director",
-      src: "/assets/about/team/team-9.png",
+      src: "/assets/about/team/our-team-2.png",
     },
     {
       name: "Esteban Marín",
       role: "Senior Designer",
-      src: "/assets/about/team/team-10.png",
+      src: "/assets/about/team/our-team-3.png",
     },
     {
-      name: "Juan Cortés",
-      role: "3D Visualization",
-      src: "/assets/about/team/team-11.png",
+      name: "Juan Sebastian Cortés",
+      role: "3D Visualization Leader",
+      src: "/assets/about/team/our-team-4.png",
+    },
+    {
+      name: "Karina Betancourt",
+      role: "Architect Designer",
+      src: "/assets/about/team/our-team-5.png",
+    },
+    {
+      name: "Julian Castro",
+      role: "Technical Architect",
+      src: "/assets/about/team/our-team-6.png",
+    },
+    {
+      name: "Alvaro Gaitán",
+      role: "Technical Architect",
+      src: "/assets/about/team/our-team-7.png",
+    },
+    {
+      name: "Daniela Cerón",
+      role: "Renderist Architect",
+      src: "/assets/about/team/our-team-8.png",
+    },
+    {
+      name: "Carlos Villate",
+      role: "Technical Architect",
+      src: "/assets/about/team/our-team-9.png",
+    },
+    {
+      name: "Diego Gómez",
+      role: "Construction Architect",
+      src: "/assets/about/team/our-team-10.png",
+    },
+    {
+      name: "Sebastián Anzola",
+      role: "Architect Designer",
+      src: "/assets/about/team/our-team-11.png",
     },
   ],
 };

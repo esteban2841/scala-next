@@ -16,7 +16,7 @@ export default function ServicesSteps({ groups }) {
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeInUp}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-16 mb-12 items-start"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-16 mb-12 items-start px-4 sm:px-6 lg:px-12"
         >
           {/* Conditional order */}
           {idx % 2 === 0 ? (

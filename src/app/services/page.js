@@ -51,7 +51,7 @@ function ServicesPage() {
       <Image
         src="/assets/logos/scala_logo_v1_black.svg"
         alt="Scala Logo"
-        className="absolute top-2 left-2 w-auto h-20 sm:top-4 sm:left-10 sm:h-26"
+        className="absolute top-2 left-2 w-auto h-10 sm:top-4 sm:left-10 sm:h-16 md:h-20"
         width={64}
         height={64}
       />
@@ -105,7 +105,7 @@ function ServicesPage() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeInUp}
-        className="w-full max-w-3xl mt-16"
+        className="w-full max-w-3xl mt-16 px-10 md:px-0 "
       >
         <p className="text-xs sm:text-base leading-relaxed text-justify [text-align-last:center]">
           {description}
