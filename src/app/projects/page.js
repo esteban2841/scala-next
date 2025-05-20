@@ -48,7 +48,7 @@ function ProjectGallery() {
       <Image
         src="/assets/logos/scala_logo_v1_black.svg"
         alt="Scala Logo"
-        className="absolute top-3 left-5 w-auto h-14 sm:left-10 sm:h-26"
+        className="absolute top-2 left-2 w-auto h-10 sm:top-4 sm:left-10 sm:h-16 md:h-20"
         width={64}
         height={64}
       />
