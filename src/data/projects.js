@@ -71,9 +71,6 @@ export const projects = {
       category: "Visualization",
       route: "/projects/qargo-coffee-store",
     },
-
-    // --- Randomized sample data for each category ---
-    // Residential (add up to 12)
     ...Array.from({ length: 10 }, (_, i) => ({
       title: `Residential Sample ${i + 1}`,
       location: `Sample City ${i + 1}, Country`,
@@ -90,8 +87,6 @@ export const projects = {
       category: "Residential",
       route: `/projects/residential-sample-${i + 1}`,
     })),
-
-    // Commercial (add up to 10)
     ...Array.from({ length: 8 }, (_, i) => ({
       title: `Commercial Sample ${i + 1}`,
       location: `Business District ${i + 1}, Country`,
@@ -108,8 +103,6 @@ export const projects = {
       category: "Commercial",
       route: `/projects/commercial-sample-${i + 1}`,
     })),
-
-    // Housing (add up to 9)
     ...Array.from({ length: 7 }, (_, i) => ({
       title: `Housing Sample ${i + 1}`,
       location: `Neighborhood ${i + 1}, Country`,
@@ -127,7 +120,6 @@ export const projects = {
       route: `/projects/housing-sample-${i + 1}`,
     })),
 
-    // Visualization (add up to 11)
     ...Array.from({ length: 9 }, (_, i) => ({
       title: `Visualization Sample ${i + 1}`,
       location: `Visualization City ${i + 1}, Country`,

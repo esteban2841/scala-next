@@ -20,7 +20,6 @@ export default function RedesSociales({
     { Icon: FaLinkedin, label: "LinkedIn", href: "https://linkedin.com/in/yourprofile" },
   ];
 
-  // Conditional alignment based on `horizontal` and responsiveness
   const alignmentClasses = horizontal
     ? "flex-row space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12"
     : "flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8 lg:space-x-12";

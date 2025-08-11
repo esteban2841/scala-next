@@ -11,7 +11,7 @@ import NavButtons from "@/components/molecules/NavButtons";
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Cargando proyectos…</div>}>
+    <Suspense fallback={<div>Loading Projects..</div>}>
       <ProjectGallery />
     </Suspense>
   );
@@ -45,13 +45,7 @@ function ProjectGallery() {
 
   return (
     <div className="relative flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-20 py-5">
-      <Image
-        src="/assets/logos/scala_logo_v1_black.svg"
-        alt="Scala Logo"
-        className="absolute top-2 left-2 w-auto h-10 sm:top-4 sm:left-10 sm:h-16 md:h-20"
-        width={64}
-        height={64}
-      />
+      
       <TabMenu className="absolute w-full justify-end right-3" />
       <section className="py-8 w-full mt-10">
         <CategoryTabs

@@ -15,7 +15,7 @@ export const home = {
     {
       src: "/assets/home/Home7.png",
       subtitle: "Timeless Elegance",
-      title: "QARGO COFFEE OFFICE",
+      title: "Qargo Coffee Office",
       href: "/",
     },
     {

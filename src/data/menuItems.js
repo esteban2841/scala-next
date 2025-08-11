@@ -1,7 +1,8 @@
 export const menuItems = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/", selected: true },
   {
     label: "Services",
+    selected: false,
     subItems: [
       { label: "Commercial", href: "/services?category=commercial" },
       { label: "Residential", href: "/services?category=residential" },
@@ -11,6 +12,7 @@ export const menuItems = [
   },
   {
     label: "Projects",
+    selected: false,
     subItems: [
       { label: "Commercial", href: "/projects?category=commercial" },
       { label: "Residential", href: "/projects?category=residential" },
@@ -18,7 +20,7 @@ export const menuItems = [
       { label: "Visualization", href: "/projects?category=visualization" },
     ],
   },
-  { label: "Contact", href: "/contact" },
-  { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Contact", selected: false, href: "/contact" },
+  { label: "About Us", selected: false, href: "/about" },
+  { label: "Blog", selected: false, href: "/blog" },
 ];

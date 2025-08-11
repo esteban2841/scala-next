@@ -59,7 +59,7 @@ export default function Boton({
               -translate-x-full
               group-hover:translate-x-0
               transition-transform
-              duration-500
+              duration-1000
               ease-in-out
             "
           />

@@ -23,7 +23,7 @@ export default function NavButtons({
         }
         className="px-4 py-2 bg-secondary text-primary rounded transition hover:bg-secondary/80 text-sm sm:text-base flex-1 sm:flex-none"
       >
-        Ver proyectos de {activeTab.toLowerCase()}
+        Go to {activeTab.toLowerCase()} projects
       </button>
       {nextTab && (
         <button

@@ -1,5 +1,5 @@
 "use client";
-import { Suspense } from "react";
+import React, { Suspense, Fragment } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import CategoryTabs from "@/components/molecules/CategoryTabs";
@@ -8,7 +8,6 @@ import { services } from "@/data/content";
 import TabMenu from "@/components/molecules/TabMenu";
 import ServicesSteps from "@/components/organisms/ServicesSteps";
 import NavButtons from "@/components/molecules/NavButtons";
-import Image from "next/image";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,7 +16,7 @@ const fadeInUp = {
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Cargando proyectos…</div>}>
+    <Suspense fallback={<div>Loading Services..</div>}>
       <ServicesPage />
     </Suspense>
   );
@@ -31,9 +30,9 @@ function ServicesPage() {
     (t) => t.toLowerCase() === rawCategory.toLowerCase()
   );
   const activeTab = matched ?? services.tabs[0];
-
   const { heroImg, headline, description, groups } =
     services.servicesData[activeTab];
+  const paragraphs = description.split("\n\n");
 
   const handleTabChange = (newTab) => {
     router.push(`/services?category=${newTab.toLowerCase()}`);
@@ -48,19 +47,9 @@ function ServicesPage() {
 
   return (
     <div className="relative flex flex-col items-center justify-start min-h-screen py-8 bg-primary font-primary text-secondary">
-      <Image
-        src="/assets/logos/scala_logo_v1_black.svg"
-        alt="Scala Logo"
-        className="absolute top-2 left-2 w-auto h-10 sm:top-4 sm:left-10 sm:h-16 md:h-20"
-        width={64}
-        height={64}
-      />
-      {/* Floating TabMenu */}
       <div className="absolute top-4 right-4">
         <TabMenu />
       </div>
-
-      {/* Category Tabs */}
       <div className="w-full max-w-4xl my-5 md:my-10 lg:my-12">
         <CategoryTabs
           categories={services.tabs}
@@ -68,14 +57,12 @@ function ServicesPage() {
           onChange={handleTabChange}
         />
       </div>
-
-      {/* Hero Image */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeInUp}
-        className="w-full overflow-hidden rounded-lg"
+        className="w-full overflow-hidden rounded-lg hidden md:block"
       >
         <img
           src={heroImg}
@@ -83,14 +70,12 @@ function ServicesPage() {
           className="w-full h-fit object-cover object-center max-h-[60vh]"
         />
       </motion.div>
-
-      {/* Headline */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeInUp}
-        className="w-full overflow-hidden mt-8 "
+        className="w-full overflow-hidden mt-8"
       >
         <div className="bg-secondary py-3 px-6 text-center">
           <h2 className="font-bold text-primary text-sm sm:text-lg">
@@ -98,26 +83,31 @@ function ServicesPage() {
           </h2>
         </div>
       </motion.div>
-
-      {/* Description */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeInUp}
-        className="w-full max-w-3xl mt-16 px-10 md:px-0 "
+        className="w-full max-w-3xl mt-16 px-10 md:px-0 space-y-6"
       >
-        <p className="text-xs sm:text-base leading-relaxed text-justify [text-align-last:center]">
-          {description}
-        </p>
+        {paragraphs.map((text, idx) => (
+          <Fragment key={idx}>
+            <p className="text-xs sm:text-base leading-relaxed text-justify [text-align-last:center]">
+              {text}
+            </p>
+            {idx === 1 && (
+              <img
+                src={heroImg}
+                alt={activeTab}
+                className="block md:hidden w-full rounded-lg object-cover object-center"
+              />
+            )}
+          </Fragment>
+        ))}
       </motion.div>
-
-      {/* Groups of Steps */}
-      <div className="w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mt-16">
+      <div className="w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-[80%] mt-16">
         <ServicesSteps groups={groups} />
       </div>
-
-      {/* Navigation Buttons */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -133,8 +123,6 @@ function ServicesPage() {
           router={router}
         />
       </motion.div>
-
-      {/* Footer */}
       <motion.div
         initial="hidden"
         whileInView="visible"

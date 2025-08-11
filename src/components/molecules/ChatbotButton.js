@@ -1,32 +1,52 @@
-import React, { useState } from "react";
+'use client';
+
+import React, { useState, useEffect } from "react";
 import { RxChatBubble, RxCross1 } from 'react-icons/rx';
 
 /**
  * ChatbotButton
- * A floating chat button positioned at the bottom right corner.
- * Uses CSS variables --primary and --secondary for styling.
  */
 export function ChatbotButton({ onClick }) {
+  const [showBubble, setShowBubble] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBubble(true), 10000); // 10s
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClick = () => {
+    setShowBubble(false);
+    onClick();
+  };
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={
-        "fixed bottom-40 right-8 z-20 flex items-center justify-center " +
-        "h-12 w-12 rounded-full bg-primary text-secondary " +
-        "shadow-lg hover:bg-secondary hover:text-primary " +
-        "transition-colors duration-200"
-      }
-      aria-label="Open chat"
-    >
-      <RxChatBubble className="h-6 w-6" />
-    </button>
+    <div className="fixed bottom-40 right-8 z-20 flex flex-col items-end">
+      {showBubble && (
+        <div
+          className="mb-2 max-w-xs rounded-lg bg-gray-800 text-white text-sm px-3 py-2 shadow-lg animate-fade-in"
+          role="alert"
+        >
+          Need any help?
+        </div>
+      )}
+      <button
+        type="button"
+        onClick={handleClick}
+        className={
+          "h-12 w-12 rounded-full bg-primary text-secondary " +
+          "shadow-lg hover:bg-secondary hover:text-primary " +
+          "transition-colors duration-200 flex items-center justify-center"
+        }
+        aria-label="Open chat"
+      >
+        <RxChatBubble className="h-6 w-6" />
+      </button>
+    </div>
   );
 }
 
 /**
  * ChatWindow
- * A simple mock chat window that appears above the button.
  */
 export function ChatWindow({ onClose }) {
   return (

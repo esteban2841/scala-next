@@ -1,4 +1,3 @@
-// src/components/PageTransitionProvider.js
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
@@ -12,10 +11,8 @@ export function PageTransitionProvider({ children }) {
   const [nextPath, setNextPath] = useState(null);
   const [isActive, setIsActive] = useState(false);
 
-  // 1) Intercept all internal link clicks
   useEffect(() => {
     const handler = (e) => {
-      // only left-clicks, no modifier keys
       if (e.button !== 0 || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey)
         return;
 
@@ -23,7 +20,6 @@ export function PageTransitionProvider({ children }) {
       if (!a) return;
 
       const href = a.getAttribute("href");
-      // only intercept same-origin internal navigations
       if (!href || !href.startsWith("/") || href.startsWith("//")) return;
 
       e.preventDefault();
@@ -34,7 +30,6 @@ export function PageTransitionProvider({ children }) {
     return () => document.removeEventListener("click", handler);
   }, []);
 
-  // 2) When nextPath is set, fire overlay → then navigate → then clear it
   useEffect(() => {
     if (!nextPath) return;
 

@@ -6,10 +6,10 @@ export default function ProjectCard({ title, location, img, redirectTo }) {
   const router = useRouter();
 
   const handleClick = () => {
-    console.log("Card clicked:", title); // Log the title of the clicked card
-    console.log("Redirecting to:", redirectTo); // Log the redirect URL
+    console.log("Card clicked:", title);
+    console.log("Redirecting to:", redirectTo); 
     if (redirectTo) {
-      router.push(redirectTo); // Redirect to the specified URL
+      router.push(redirectTo); 
     }
   };
 

@@ -43,14 +43,7 @@ export default function Page({ params }) {
 
   return (
     <div className="bg-primary text-secondary min-h-screen px-4 sm:px-6 lg:px-20 py-5">
-      {/* Logo + Nav */}
-      <Image
-        src="/assets/logos/scala_logo_v1_black.svg"
-        alt="Scala Logo"
-        className="absolute top-2 left-2 w-auto h-10 sm:top-4 sm:left-10 sm:h-16 md:h-20"
-        width={64}
-        height={64}
-      />
+      
       <TabMenu className="absolute w-full justify-end right-3" />
 
       {/* Title Section */}
@@ -94,7 +87,7 @@ export default function Page({ params }) {
       {/* Description Section */}
       <motion.section
         {...fadeIn}
-        className="my-20 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-10"
+        className="my-20 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-10 md:space-x-12"
       >
         <Image
           src="/assets/projects/up-arrow.png"
@@ -103,7 +96,7 @@ export default function Page({ params }) {
           height={40}
           className="hidden sm:block rotate-180 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-28 xl:h-28"
         />
-        <p className="mb-4 max-w-4xl font-primary leading-loose text-base sm:text-xl">
+        <p className="mb-4 w-full  font-primary leading-loose text-sm sm:text-xl">
           {project.description1}
         </p>
       </motion.section>
@@ -120,7 +113,7 @@ export default function Page({ params }) {
       {/* Desktop Grid */}
       <motion.div
         {...fadeIn}
-        className="hidden sm:grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-14 mb-12"
+        className="hidden sm:grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-14 mb-32"
       >
         {project.images.map((src, idx) => (
           <div
@@ -168,8 +161,8 @@ export default function Page({ params }) {
         </div>
       )}
 
-      <section className="mb-8">
-        <p className="text-base sm:text-xl font-primary text-secondary leading-loose text-justify">
+      <section className="mb-32">
+        <p className="text-sm sm:text-xl font-primary text-secondary leading-loose text-justify px-6 md:px-52">
           {project.description2}
         </p>
       </section>

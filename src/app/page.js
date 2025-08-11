@@ -13,12 +13,12 @@ import { useState } from "react";
 export default function Home() {
   const [open, setOpen] = useState(false);
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen">
+    <div className="relative flex flex-col items-center justify-center min-h-screen ">
       <TabMenu
         className="absolute w-full justify-end right-3 top-3"
         style="primary"
       />
-      <Carrusel slides={home.slides} interval={6000} className="absolute z-0" />
+      <Carrusel slides={home.slides} interval={7000} className="absolute z-0" />
       <RedesSociales
         className={"absolute z-10  bottom-4 right-8 flex"}
         iconClassName="text-primary hover:text-secondary hover:bg-primary"
@@ -30,13 +30,13 @@ export default function Home() {
         height={50}
         className="
           absolute z-10 bottom-8 left-8
-          h-4 sm:h-6 md:h-8 lg:h-14
+          h-14 sm:h-14 md:h-17 lg:h-20
           w-auto 
         "
       />
       <div className="absolute z-10 top-4 right-4 flex"></div>
-{/*       <ChatbotButton onClick={() => setOpen((prev) => !prev)} />
-      {open && <ChatWindow onClose={() => setOpen(false)} />} */}
+      <ChatbotButton onClick={() => setOpen((prev) => !prev)} />
+      {open && <ChatWindow onClose={() => setOpen(false)} />}
     </div>
   );
 }

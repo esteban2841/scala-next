@@ -1,4 +1,3 @@
-// components/molecules/Footer.jsx
 "use client";
 import React from "react";
 import RedesSociales from "@/components/molecules/RedesSociales";

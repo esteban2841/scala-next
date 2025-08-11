@@ -1,29 +1,25 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { DM_Sans } from 'next/font/google';
+import './globals.css';
+import ClientLayout from './ClientLayout';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  preload: true,
+  variable: '--font-dm-sans', // This is optional but useful for Tailwind CSS
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
-  title: "SCALA",
-  description: "",
+  title: 'SCALA',
+  description: ''
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
-        {children}
+    <html lang="en" className={`${dmSans.className}`}>
+      <body className={` antialiased`}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

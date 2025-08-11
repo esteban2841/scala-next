@@ -17,13 +17,6 @@ export default function AboutPage() {
 
   return (
     <div className="bg-primary text-secondary min-h-screen px-6 sm:px-8 lg:px-32 py-8">
-      <Image
-        src="/assets/logos/scala_logo_v1_black.svg"
-        alt="Scala Logo"
-        className="absolute top-3 left-5 w-auto h-14 sm:left-10 sm:h-26"
-        width={64}
-        height={64}
-      />
       {/* Tab Menu */}
       <TabMenu className="absolute w-full justify-end right-4 top-4" />
 
@@ -181,7 +174,6 @@ export default function AboutPage() {
                 width={300}
                 height={300}
                 className="w-full h-auto object-cover transition-transform duration-300"
-                // no more group-hover:scale here
               />
 
               <div className="absolute inset-0 bg-secondary/50 opacity-0 transition-opacity duration-300 group-hover:opacity-90" />
