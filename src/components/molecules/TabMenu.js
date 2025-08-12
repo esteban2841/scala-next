@@ -4,11 +4,10 @@
 import React, { useState, useEffect } from "react";
 import IconButton from "@/components/atoms/IconButton";
 import { RxHamburgerMenu, RxCross2, RxChevronDown } from "react-icons/rx";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { menuItems } from "@/data/content";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from 'next/navigation';
 
 export default function TabMenu({ className = "", style = "secondary" }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +36,10 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   };
 
   const setActiveRouteUi = (label) => {
+    console.log("🚀 ~ setActiveRouteUi ~ label:", label)
     const isActive = label === "Home" ? pathname === "/" : pathname.includes(label.toLowerCase());
-    return isActive ? "text-white/100 uppercase": "uppercase"
+    console.log("🚀 ~ setActiveRouteUi ~ isActive:", isActive)
+    return isActive ? "text-white/95 uppercase": "uppercase"
   };
   // Prevent rapid toggling from skipping animations
   useEffect(() => {
@@ -50,21 +51,27 @@ export default function TabMenu({ className = "", style = "secondary" }) {
     };
   }, [isOpen]);
 
-  useEffect(()=>{
-    console.log("🚀 ~ TabMenu ~ pathname:", pathname)
-  },[pathname])
-
   return (
     <>
       {/* Botón hamburguesa / cerrar */}
-      <div className={`flex ${className}`}>
+      <div className={`flex w-full lg:px-4 px-10 justify-between items-center  ${className} max-w-[1400px]`}>
+        <Image
+          src="/assets/logos/scala_logo_v1_white.svg"
+          alt="Scala Logo"
+          width={92}
+          height={30}
+          className="
+            relative z-10
+            h-14 sm:h-14 md:h-17 lg:h-20 right-2 hover:scale-[1.05] transition-transform duration-300
+          "
+        />
         <IconButton
           icon={isOpen ? RxCross2 : RxHamburgerMenu}
           label={isOpen ? "Cerrar menú" : "Menú"}
           onClick={toggleMenu}
-          className={`text-${style} ${
+          className={`relative text-${style} ${
             isOpen ? "text-white" : ""
-          } filter z-50 hover:brightness-90 transition`}
+          } filter z-50 hover:brightness-90 hover:scale-[1.05] transition-transform duration-300`}
         />
       </div>
 
@@ -98,7 +105,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
             >
               {/* Menu items (and logo) fade in after background & drawer */}
               <motion.ul
-                className={`flex flex-col items-start justify-center gap-5 px-20 p-0 m-0 list-none ${expanded ? 'border-r border-r-white' : ''}`} 
+                className={`flex flex-col items-start px-20 justify-center gap-5  p-0 m-0 list-none ${expanded ? 'border-r border-r-white' : ''}`} 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -110,7 +117,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
                       <div className="flex items-center justify-center gap-2">
                         <button
                           onClick={() => toggleExpand(item.label)}
-                          className={`"flex items-center text-white/50 text-2xl sm:text-3xl md:text-4xl hover:text-primary transition" ${setActiveRouteUi(item.label)}`}
+                          className={`flex items-center text-white/50 text-2xl sm:text-3xl md:text-4xl hover:text-primary transition ${setActiveRouteUi(item.label)}`}
                         >
                           {item.label}
                           

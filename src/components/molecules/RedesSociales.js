@@ -21,11 +21,11 @@ export default function RedesSociales({
   ];
 
   const alignmentClasses = horizontal
-    ? "flex-row space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12"
-    : "flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8 lg:space-x-12";
+    ? "flex-row "
+    : "flex-col sm:flex-row ";
 
   return (
-    <div className={`flex ${alignmentClasses} ${className}`}>
+    <div className={`flex z-30 rounded ${alignmentClasses} gap-2 md:gap-5 ${className}`}>
       {socials.map(({ Icon, label, href }) => (
         <IconButton
           key={label}

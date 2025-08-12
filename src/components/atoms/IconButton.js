@@ -26,9 +26,9 @@ export default function IconButton({
       <Icon
         aria-hidden="true"
         className={`
-          w-5 h-5       /* base size */
-          sm:w-6 sm:h-6 /* ≥640px */
-          md:w-8 md:h-8 /* ≥768px */
+          w-4 h-4       /* base size */
+          sm:w-5 sm:h-5 /* ≥640px */
+          md:w-6 md:h-6 /* ≥768px */
         `}
       />
     </button>

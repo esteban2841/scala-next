@@ -34,3 +34,14 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+.bg-gradient-overlay{
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%) ;
+  
+
+
+}
+
+.bg-gradient-overlay-bottom{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}

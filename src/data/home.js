@@ -1,34 +1,43 @@
 export const home = {
   slides: [
     {
-      src: "/assets/home/Home8.png",
-      subtitle: "Our last project",
-      title: "MB Kitchen",
+      src: "/assets/home/desktop/Home1.webp",
+      subtitle: "Residential",
+      title: "E.C. APARTMENT",
       href: "/",
     },
     {
-      src: "/assets/home/Home2.png",
-      subtitle: "Client Favorite",
-      title: "Tashan",
+      src: "/assets/home/desktop/Home2.webp",
+      subtitle: "Commercial",
+      title: "Qargo Coffee prototype",
       href: "/",
     },
     {
-      src: "/assets/home/Home7.png",
-      subtitle: "Timeless Elegance",
-      title: "Qargo Coffee Office",
+      src: "/assets/home/desktop/Home3.webp",
+      subtitle: "Housing",
+      title: "El cerrito house",
       href: "/",
     },
     {
-      src: "/assets/home/Home5.jpg",
+      src: "/assets/home/desktop/Home4.webp",
+      subtitle: "3D visualization",
+      title: "Qargo Coffee office",
+      href: "/",
+    },
+    {
+      src: "/assets/home/desktop/Home5.webp",
       subtitle: "Want to know more?",
       title: "Our services",
-      href: "/",
+      href: "/contact",
     },
     {
-      src: "/assets/home/Home6.jpg",
+      src: "/assets/home/desktop/Home6.webp",
       subtitle: "Start a project?",
       title: "Contact us",
       href: "/contact",
     },
   ],
 };
+
+
+

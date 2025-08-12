@@ -134,7 +134,7 @@ export default function Page({ params }) {
       {/* OVERLAY */}
       {zoomedSlide !== null && (
         <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-gradient-overlay flex items-center justify-center z-50"
           onClick={() => setZoomedSlide(null)}
         >
           <button

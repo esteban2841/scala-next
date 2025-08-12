@@ -5,6 +5,11 @@ import Image from 'next/image';
 import Boton from '../atoms/Boton';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import RedesSociales from "@/components/molecules/RedesSociales";
+import {
+  ChatbotButton,
+  ChatWindow,
+} from "@/components/molecules/ChatbotButton";
 
 export default function Carrusel({
   slides = [],
@@ -15,6 +20,7 @@ export default function Carrusel({
   const [direction, setDirection] = useState(1);
   const router                    = useRouter();
   const wheelLock                 = useRef(false);
+  const [open, setOpen] = useState(false);
 
   // timings (in seconds)
   const IMAGE_TRANSITION = 1;                       // 1s to slide in
@@ -77,7 +83,7 @@ export default function Carrusel({
             <motion.div
               key={idx}
               custom={direction}
-              className="absolute inset-0"
+              className="w-full absolute inset-0"
               variants={slideVariants}
               initial="enter"
               animate="center"
@@ -86,7 +92,7 @@ export default function Carrusel({
             >
               {/* IMAGE + ZOOM */}
               <motion.div
-                className="absolute inset-0"
+                className="w-full absolute inset-0"
                 initial={{ scale: 1 }}
                 animate={{ scale: 1.05 }}
                 transition={{
@@ -105,11 +111,11 @@ export default function Carrusel({
               </motion.div>
 
               {/* DARK OVERLAY */}
-              <div className="absolute inset-0 bg-black/30 z-10" />
+              <div className="absolute w-full inset-0 bg-gradient-overlay z-10" />
 
               {/* TEXT & BUTTON (static container for zoom) */}
               <motion.div
-                className="text-white w-full h-full z-20 relative flex"
+                className="text-white w-full uppercase h-full z-20 relative flex justify-center items-center"
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -119,22 +125,22 @@ export default function Carrusel({
                   ease:     'easeOut',
                 }}
               >
-                <div className='flex flex-col w-full h-full max-w-[1200px] justify-center items-start relative'>
+                <div className='flex flex-col w-full px-10 xl:px-0 gap-4 h-full py-40 max-w-[1400px] justify-end items-start relative'>
                   {subtitle && (
-                    <p className="uppercase ml-9 tracking-wide text-xs sm:text-sm md:text-base mb-2 sm:mb-3">
+                    <p className="uppercase font-extrabold tracking-wide text-xs sm:text-sm md:text-base ">
                       {subtitle}
                     </p>
                   )}
                   {title && (
-                    <h2 className="font-bold text-5xl ml-9 sm:text-5xl md:text-5xl lg:text-6xl mb-6 md:mb-8 break-words">
+                    <h2 className="font-light text-4xl mb-8 sm:text-2xl md:text-2xl lg:text-4xl break-words">
                       {title}
                     </h2>
                   )}
-                  <div className="hidden md:block w-80 h-1 bg-white mb-4" />
                   <Boton
-                    className="w-24 h-8 sm:w-32 sm:h-10 md:w-40 md:h-12 lg:w-48 lg:h-14"
+                    className="w-32 h-8 sm:w-32 sm:h-8 md:w-40 md:h-12 lg:w-48 lg:h-10"
                     onClick={() => router.push(href)}
                   />
+
 
                 </div>
               </motion.div>
@@ -155,19 +161,31 @@ export default function Carrusel({
         }}
       />
 
-      {/* INDICATORS */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-2">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => paginate(idx)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              idx === current ? 'bg-white' : 'bg-white/50'
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
+      <div className='w-full max-w-[1400px] h-screen flex relative right-0'>
+
+        <RedesSociales
+          className={"absolute py-32  px-10 xl:px-0 z-10 right-0 bottom-0 flex"}
+          iconClassName="text-primary hover:text-secondary hover:bg-primary"
+        />
+        {/* <div className="absolute z-10 top-4 right-4 flex"></div> */}
+        <ChatbotButton onClick={() => setOpen((prev) => !prev)} />
+        {open && <ChatWindow onClose={() => setOpen(false)} />}
+
+        {/* INDICATORS */}
+        <div className="absolute  px-10 xl:px-0 right-0 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-2">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => paginate(idx)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                idx === current ? 'bg-white' : 'bg-white/50'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }
