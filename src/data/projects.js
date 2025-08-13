@@ -1,5 +1,5 @@
 export const projects = {
-  categories: ["Residential", "Commercial", "Housing", "Visualization"],
+  categories: ["Commercial", "Residential", "Housing", "Visualization"],
   allProjects: [
     {
       title: "MB Kitchen",
@@ -7,6 +7,13 @@ export const projects = {
       img: "/assets/projects/Project1.png",
       category: "Residential",
       route: "/projects/mb-kitchen",
+    },
+    {
+      title: "MB Backyard",
+      location: "Los Angeles, United States",
+      img: "/assets/projects/Project4.png",
+      category: "Commercial",
+      route: "/projects/mb-backyard",
     },
     {
       title: "Qargo Coffee Office",
@@ -21,13 +28,6 @@ export const projects = {
       img: "/assets/projects/Project3.png",
       category: "Commercial",
       route: "/projects/tashan",
-    },
-    {
-      title: "MB Backyard",
-      location: "Los Angeles, United States",
-      img: "/assets/projects/Project4.png",
-      category: "Commercial",
-      route: "/projects/mb-backyard",
     },
     {
       title: "Office",

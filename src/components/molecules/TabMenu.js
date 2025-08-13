@@ -14,7 +14,8 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   const [expanded, setExpanded] = useState(null);
   const pathname = usePathname();
   const router = useRouter();
-  
+  const [ isLogoDark, setIsLogoDark ] = useState(pathname !== "/");
+
   const handleLinkClick = (href) => {
     router.push(href);
     router.refresh();
@@ -54,25 +55,53 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   return (
     <>
       {/* Botón hamburguesa / cerrar */}
-      <div className={`flex w-full lg:px-4 px-10 justify-between items-center  ${className} max-w-[1400px]`}>
-        <Image
-          src="/assets/logos/scala_logo_v1_white.svg"
-          alt="Scala Logo"
-          width={92}
-          height={30}
-          className="
-            relative z-10
-            h-14 sm:h-14 md:h-17 lg:h-20 right-2 hover:scale-[1.05] transition-transform duration-300
-          "
-        />
-        <IconButton
-          icon={isOpen ? RxCross2 : RxHamburgerMenu}
-          label={isOpen ? "Cerrar menú" : "Menú"}
-          onClick={toggleMenu}
-          className={`relative text-${style} ${
-            isOpen ? "text-white" : ""
-          } filter z-50 hover:brightness-90 hover:scale-[1.05] transition-transform duration-300`}
-        />
+      <div className={` ${className} flex w-full lg:px-4 text-base px-10 justify-between items-center  max-w-[1400px]`}>
+        {
+          isLogoDark ? (
+            <Image
+              src="/assets/logos/scala_logo_v1_black.svg"
+              alt="Scala Logo"
+              width={50}
+              height={50}
+              className="h-14 sm:h-14 md:h-17 lg:h-20 w-32"
+            />
+          ) : (
+            <Image
+              src="/assets/logos/scala_logo_v1_white.svg"
+              alt="Scala Logo"
+              width={50}
+              height={50}
+              className="h-14 sm:h-14 md:h-17 lg:h-20 w-32"
+            />
+          )
+        }
+
+        {
+          isOpen ? 
+            <div
+              onClick={toggleMenu}
+              className={`relative text-${style} ${
+                isOpen ? "text-white" : ""
+              } filter z-50 hover:brightness-90 w-8 hover:scale-[1.05] transition-transform duration-300`}
+            >
+
+              <RxCross2 className="w-full text-2xl md:text-7xl"/>  
+            </div>
+            :
+
+            <div
+              onClick={toggleMenu}
+              className={`relative text-${style} ${
+                isOpen ? "text-white" : ""
+              } filter z-50 hover:brightness-90 w-8 hover:scale-[1.05] transition-transform duration-300`}
+            >
+
+
+              <RxHamburgerMenu className="w-full text-2xl md:text-7xl"/>  
+              
+            </div>
+
+        }
       </div>
 
       {/* Overlay + drawer */}
@@ -105,7 +134,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
             >
               {/* Menu items (and logo) fade in after background & drawer */}
               <motion.ul
-                className={`flex flex-col items-start px-20 justify-center gap-5  p-0 m-0 list-none ${expanded ? 'border-r border-r-white' : ''}`} 
+                className={`  ${expanded ? 'hidden md:flex flex-col items-start px-20 justify-center gap-5  p-0 m-0 list-none' : 'flex flex-col items-start px-20 justify-center gap-5  p-0 m-0 list-none'} `} 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -117,7 +146,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
                       <div className="flex items-center justify-center gap-2">
                         <button
                           onClick={() => toggleExpand(item.label)}
-                          className={`flex items-center text-white/50 text-2xl sm:text-3xl md:text-4xl hover:text-primary transition ${setActiveRouteUi(item.label)}`}
+                          className={`flex items-center text-white/50 text-lg sm:text-xl md:text-2xl hover:text-primary transition ${setActiveRouteUi(item.label)}`}
                         >
                           {item.label}
                           
@@ -127,7 +156,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
                     ) : (
                       <a
                         onClick={() => handleLinkClick(item.href)}
-                        className={`text-white/50 text-2xl sm:text-3xl md:text-4xl hover:text-primary transition cursor-pointer ${setActiveRouteUi(item.label)}`}
+                        className={`text-white/50 text-lg sm:text-xl md:text-2xl hover:text-primary transition cursor-pointer ${setActiveRouteUi(item.label)}`}
                       >
                         {item.label}
                       </a>
@@ -154,7 +183,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
                 </motion.li>
               </motion.ul>
                 {menuItems.map((item) => (
-                  <li key={item.label} className="p-0 m-0 list-none">
+                  <li key={item.label} className={`p-0 m-0 list-none ${expanded ? 'border-l border-l-white' : ''}`}>
                     {item.subItems && (
                       <div className="flex items-center justify-center gap-2">
                         <AnimatePresence initial={false}>
@@ -174,7 +203,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
                                 >
                                   <a
                                     onClick={() => handleLinkClick(sub.href)}
-                                    className="text-white/50 uppercase text-xl md:text-2xl font-medium hover:text-primary transition cursor-pointer"
+                                    className="text-white/50 uppercase text-base md:text-lg font-medium hover:text-primary transition cursor-pointer"
                                   >
                                     {sub.label}
                                   </a>

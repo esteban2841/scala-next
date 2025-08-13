@@ -6,6 +6,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .font-large {
   @apply text-3xl font-bold leading-relaxed;
 }
@@ -30,7 +32,11 @@
   }
 }
 
-body {
+body, html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
   color: var(--foreground);
   background: var(--background);
 }

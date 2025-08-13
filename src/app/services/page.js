@@ -43,14 +43,14 @@ function ServicesPage() {
   const nextTab =
     currentIndex < services.tabs.length - 1
       ? services.tabs[currentIndex + 1]
-      : null;
+      : services.tabs[0];
 
   return (
-    <div className="relative flex flex-col items-center justify-start min-h-screen py-8 bg-primary font-primary text-secondary">
-      <div className="absolute top-4 right-4">
+    <div className="relative flex flex-col w-full  items-center justify-start min-h-screen py-8 bg-[#FCFBF6] font-primary text-secondary">
+      <div className="flex w-full max-w-[1400px] ">
         <TabMenu />
       </div>
-      <div className="w-full max-w-4xl my-5 md:my-10 lg:my-12">
+      <div className="w-full max-w-[1400px] ">
         <CategoryTabs
           categories={services.tabs}
           active={activeTab}
@@ -62,23 +62,10 @@ function ServicesPage() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeInUp}
-        className="w-full overflow-hidden rounded-lg hidden md:block"
+        className="w-full overflow-hidden p-4 mt-14 flex items-center justify-center"
       >
-        <img
-          src={heroImg}
-          alt={activeTab}
-          className="w-full h-fit object-cover object-center max-h-[60vh]"
-        />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={fadeInUp}
-        className="w-full overflow-hidden mt-8"
-      >
-        <div className="bg-secondary py-3 px-6 text-center">
-          <h2 className="font-bold text-primary text-sm sm:text-lg">
+        <div className="text-center w-full max-w-[1000px] text-wrap flex items-center justify-center">
+          <h2 className="font-600 text-black text-xl sm:text-4xl uppercase tracking-widest">
             {headline}
           </h2>
         </div>
@@ -88,11 +75,11 @@ function ServicesPage() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={fadeInUp}
-        className="w-full max-w-3xl mt-16 px-10 md:px-0 space-y-6"
+        className="w-full max-w-[900px] my-16 p-4 md:px-0 space-y-6"
       >
         {paragraphs.map((text, idx) => (
           <Fragment key={idx}>
-            <p className="text-xs sm:text-base leading-relaxed text-justify [text-align-last:center]">
+            <p className="text-xs font-medium sm:text-base leading-relaxed text-justify [text-align-last:center]">
               {text}
             </p>
             {idx === 1 && (
@@ -105,7 +92,22 @@ function ServicesPage() {
           </Fragment>
         ))}
       </motion.div>
-      <div className="w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-[80%] mt-16">
+
+      {/* {'main image in the view'} */}
+     { <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInUp}
+        className="w-full max-w-[1200px] overflow-hidden hidden md:block"
+      >
+        <img
+          src={heroImg}
+          alt={activeTab}
+          className="w-full h-fit object-cover object-center max-h-[60vh]"
+        />
+      </motion.div>}
+      <div className="w-full mt-16">
         <ServicesSteps groups={groups} />
       </div>
       <motion.div
@@ -116,8 +118,6 @@ function ServicesPage() {
         className="w-full"
       >
         <NavButtons
-          prevTab={prevTab}
-          nextTab={nextTab}
           activeTab={activeTab}
           handleTabChange={handleTabChange}
           router={router}

@@ -22,6 +22,7 @@ function ProjectGallery() {
   const searchParams = useSearchParams();
   const rawCategory = searchParams.get("category") || "";
 
+
   const matched = projects.categories.find(
     (cat) => cat.toLowerCase() === rawCategory.toLowerCase()
   );
@@ -46,8 +47,8 @@ function ProjectGallery() {
   return (
     <div className="relative flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-20 py-5">
       
-      <TabMenu className="absolute w-full justify-end right-3" />
-      <section className="py-8 w-full mt-10">
+      <TabMenu />
+      <section className="py-8 w-full ">
         <CategoryTabs
           categories={projects.categories}
           active={activeTab}
@@ -55,7 +56,7 @@ function ProjectGallery() {
         />
 
         <hr className="border-t border-gray-300 mb-10" />
-        <div className="flex items-center justify-center w-full mb-10 ">
+        <div className="flex items-center justify-center w-full ">
           <ProjectsGrid projects={filtered} />
         </div>
 

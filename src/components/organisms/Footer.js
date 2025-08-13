@@ -8,7 +8,6 @@ export default function Footer({ classname = "" }) {
     <div className={classname}>
       <footer className="box-border py-8 ">
         {/* Línea superior */}
-        <hr className="border-y-2 border-gray-700" />
 
         {/* Back to top */}
         <div className="flex justify-end py-4">

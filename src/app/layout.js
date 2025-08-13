@@ -17,8 +17,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${dmSans.className}`}>
-      <body className={` antialiased`}>
+    <html lang="en" className={`w-full ${dmSans.className}`}>
+      <body className={`w-full antialiased`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

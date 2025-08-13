@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonRedirect from "../atoms/ButtonRedirect";
 
 export default function NavButtons({
   prevTab,
@@ -8,30 +9,33 @@ export default function NavButtons({
   router,
 }) {
   return (
-    <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 sm:gap-6 px-2 sm:px-8 md:px-12 mt-2 w-full">
+    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center gap-4 sm:gap-6 px-2 sm:px-8 md:px-12 mt-10 w-full">
       {prevTab && (
-        <button
+        <ButtonRedirect
           onClick={() => handleTabChange(prevTab)}
-          className="px-4 py-2 bg-secondary text-primary rounded transition hover:bg-secondary/80 text-sm sm:text-base"
+          label={"← " + prevTab}
+          className="px-12 py-2 border-black  transition text-sm sm:text-base"
         >
-          ← {prevTab}
-        </button>
+        </ButtonRedirect>
       )}
-      <button
+      <ButtonRedirect
         onClick={() =>
           router.push(`/projects?category=${activeTab.toLowerCase()}`)
         }
-        className="px-4 py-2 bg-secondary text-primary rounded transition hover:bg-secondary/80 text-sm sm:text-base flex-1 sm:flex-none"
+        className="px-12 py-2  border-black  transition text-sm sm:text-base flex-1 sm:flex-none"
+        label={`Go to ${activeTab.toLowerCase()} projects`}
+        borderColor={'#000'}
+      
       >
-        Go to {activeTab.toLowerCase()} projects
-      </button>
+        
+      </ButtonRedirect>
       {nextTab && (
-        <button
+        <ButtonRedirect
           onClick={() => handleTabChange(nextTab)}
-          className="px-4 py-2 bg-secondary text-primary rounded transition hover:bg-secondary/80 text-sm sm:text-base"
+          className="px-12 py-2 border-black  transition text-sm sm:text-base"
+          label={nextTab + " →"}
         >
-          {nextTab} →
-        </button>
+        </ButtonRedirect>
       )}
     </div>
   );

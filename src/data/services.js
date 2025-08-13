@@ -1,5 +1,5 @@
 export const services = {
-  tabs: ["Residential", "Commercial", "Housing", "Visualization"],
+  tabs: [ "Commercial", "Residential", "Housing", "Visualization"],
 
   servicesData: {
     Residential: {
