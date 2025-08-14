@@ -77,7 +77,7 @@ export default function Carrusel({
       <AnimatePresence custom={direction} initial={false}>
         {slides.map((slide, idx) => {
           if (idx !== current) return null;
-          const { src, subtitle, title, href } = slide;
+          const { src, srcMobile, subtitle, title, href } = slide;
 
           return (
             <motion.div
@@ -105,7 +105,14 @@ export default function Carrusel({
                   src={src}
                   alt={title || `slide-${idx}`}
                   fill
-                  className="object-cover"
+                  className="object-cover hidden md:block"
+                  priority
+                />
+                <Image
+                  src={srcMobile}
+                  alt={title || `slide-${idx}`}
+                  fill
+                  className="object-cover md:hidden"
                   priority
                 />
               </motion.div>

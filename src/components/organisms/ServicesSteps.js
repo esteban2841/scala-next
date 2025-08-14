@@ -30,7 +30,7 @@ export default function ServicesSteps({ groups }) {
           >
             {/* Text block with horizontal slide */}
             <motion.div
-              className={`space-y-3 w-full text-left flex flex-col gap-6  justify-evenly h-full  order-1 ${isCenter ? "sm:order-2" : "sm:order-1"}`}
+              className={`space-y-3 w-full text-left flex flex-col gap-6  justify-between h-full  order-1 ${isCenter ? "sm:order-2" : "sm:order-1"}`}
               initial={{ opacity: 0, x: textInitialX }}
               whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
               viewport={{ once: false, amount: 0.2 }}
@@ -55,11 +55,11 @@ export default function ServicesSteps({ groups }) {
             </motion.div>
 
             {/* Image block */}
-            <div className={`overflow-hidden rounded-lg max-h-[50vh] order-2 ${isCenter ? "sm:order-1" : "sm:order-2"}`}>
+            <div className={`overflow-hidden rounded-lg max-h-[50vh] w-full aspect-square order-2 ${isCenter ? "sm:order-1" : "sm:order-2"}`}>
               <img
                 src={group.img}
                 alt={`Group ${idx + 1}`}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-position-center "
               />
             </div>
           </motion.div>

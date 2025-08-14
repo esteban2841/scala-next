@@ -7,6 +7,7 @@ export default function NavButtons({
   activeTab,
   handleTabChange,
   router,
+  isHeaderNav = false,
 }) {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center gap-4 sm:gap-6 px-2 sm:px-8 md:px-12 mt-10 w-full">
@@ -23,7 +24,7 @@ export default function NavButtons({
           router.push(`/projects?category=${activeTab.toLowerCase()}`)
         }
         className="px-12 py-2  border-black  transition text-sm sm:text-base flex-1 sm:flex-none"
-        label={`Go to ${activeTab.toLowerCase()} projects`}
+        label={` ${isHeaderNav ? 'projects >': `see ${activeTab.toLowerCase()} projects >`} `}
         borderColor={'#000'}
       
       >

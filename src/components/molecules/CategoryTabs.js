@@ -8,10 +8,10 @@ export default function CategoryTabs({ categories = [], active, onChange }) {
   const isProjectPage = pathname === "/projects";
 
   return (
-    <div>
-      <nav className="relative w-full flex p-4 ">
+    <div className="w-full">
+      <nav className="relative w-full flex justify-center px-6 items-center">
 
-        <div className={`flex flex-col md:flex-row  gap-4 justify-between items-center p-6 font-primary my-8 w-full border-y 'border-black/60' ${ isProjectPage ?  'bg-black' : '' }`} >
+        <div className={`flex flex-col w-full md:flex-row max-w-[1400px] gap-4 lg:gap-14 justify-center items-center py-6 px-12 my-8  border-y border-black/70 ${ isProjectPage ?  'bg-black' : '' }`} >
           {categories.map((cat) => {
             const isActive = cat === active;
             return (
@@ -22,7 +22,7 @@ export default function CategoryTabs({ categories = [], active, onChange }) {
               >
                 <span
                   className={`
-                    text-sm sm:text-2xl md:text-3xl uppercase
+                    text-sm sm:text-base md:text-lg uppercase
                   ${
                     isActive
                       ? `font-semibold text-black underline-offset-2 underline decoration-black  ${ isProjectPage ?  'text-white underline-offset-2 underline decoration-white' : '' }`

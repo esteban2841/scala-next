@@ -14,7 +14,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   const [expanded, setExpanded] = useState(null);
   const pathname = usePathname();
   const router = useRouter();
-  const [ isLogoDark, setIsLogoDark ] = useState(pathname !== "/");
+  const [ isLogoDark, setIsLogoDark ] = useState(pathname !== "/" || false);
 
   const handleLinkClick = (href) => {
     router.push(href);
@@ -37,9 +37,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   };
 
   const setActiveRouteUi = (label) => {
-    console.log("🚀 ~ setActiveRouteUi ~ label:", label)
     const isActive = label === "Home" ? pathname === "/" : pathname.includes(label.toLowerCase());
-    console.log("🚀 ~ setActiveRouteUi ~ isActive:", isActive)
     return isActive ? "text-white/95 uppercase": "uppercase"
   };
   // Prevent rapid toggling from skipping animations
@@ -55,7 +53,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   return (
     <>
       {/* Botón hamburguesa / cerrar */}
-      <div className={` ${className} flex w-full lg:px-4 text-base px-10 justify-between items-center  max-w-[1400px]`}>
+      <div className={` ${className} flex w-full text-base justify-between items-center  max-w-[1400px]`}>
         {
           isLogoDark ? (
             <Image
@@ -183,7 +181,7 @@ export default function TabMenu({ className = "", style = "secondary" }) {
                 </motion.li>
               </motion.ul>
                 {menuItems.map((item) => (
-                  <li key={item.label} className={`p-0 m-0 list-none ${expanded ? 'border-l border-l-white' : ''}`}>
+                  <li key={item.label} className={`p-0 m-0 list-none ${expanded ? 'border-l border-l-white' : 'border-0'}`}>
                     {item.subItems && (
                       <div className="flex items-center justify-center gap-2">
                         <AnimatePresence initial={false}>

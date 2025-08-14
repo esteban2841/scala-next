@@ -107,6 +107,23 @@ function ServicesPage() {
           className="w-full h-fit object-cover object-center max-h-[60vh]"
         />
       </motion.div>}
+
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={fadeInUp}
+        className="w-full"
+      >
+        <NavButtons
+          isHeaderNav={true}
+          activeTab={activeTab}
+          handleTabChange={handleTabChange}
+          router={router}
+        />
+      </motion.div>
+
       <div className="w-full mt-16">
         <ServicesSteps groups={groups} />
       </div>

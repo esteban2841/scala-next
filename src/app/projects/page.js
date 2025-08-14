@@ -45,10 +45,10 @@ function ProjectGallery() {
       : null;
 
   return (
-    <div className="relative flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-20 py-5">
+    <div className="relative flex flex-col justify-center items-center min-h-screen px-4 sm:px-6 lg:px-20 py-5">
       
       <TabMenu />
-      <section className="py-8 w-full ">
+      <section className="w-full flex flex-col items-center justify-center ">
         <CategoryTabs
           categories={projects.categories}
           active={activeTab}

@@ -8,11 +8,13 @@ import Footer from "@/components/organisms/Footer";
 import Image from "next/image";
 import { projects } from "@/data/content";
 import { motion } from "framer-motion";
+import ButtonRedirect from "@/components/atoms/ButtonRedirect";
 
 export default function Page({ params }) {
   const router = useRouter();
   const { id } = use(params);
   const project = projects.projectDetails[id];
+  console.log("🚀 ~ Page ~ project:", project)
   const [zoomedSlide, setZoomedSlide] = useState(null);
 
   if (!project) {
@@ -42,21 +44,17 @@ export default function Page({ params }) {
   };
 
   return (
-    <div className="bg-primary text-secondary min-h-screen px-4 sm:px-6 lg:px-20 py-5">
+    <div className=" flex flex-col justify-center w-full items-center bg-primary text-secondary min-h-screen px-4 sm:px-6 lg:px-20 py-5">
       
-      <TabMenu className="absolute w-full justify-end right-3" />
+      <TabMenu  />
 
       {/* Title Section */}
-      <motion.section {...fadeIn} className="my-16">
-        <div className="mb-16">
-          <div className="flex items-center">
-            <span className="text-xl sm:text-3xl font-bold mr-4 leading-none">
-              ■
-            </span>
-            <h1 className="text-4xl sm:text-6xl font-medium">
+      <motion.section {...fadeIn} className="w-full flex flex-col justify-center items-center my-16">
+        <div className="mb-16 w-full max-w-[1400px]">
+          <div className="flex items-center border-y border-y-black py-8">
+            <h1 className="text-4xl uppercase sm:text-6xl font-medium">
               {project.title}
             </h1>
-            <hr className="ml-6 flex-1 border-0 md:border-t-2 border-secondary" />
           </div>
         </div>
         <div className="-mx-4 sm:-mx-6 lg:-mx-20 mb-20">
@@ -66,39 +64,44 @@ export default function Page({ params }) {
             className="w-screen max-w-none h-auto max-h-[85vh] object-cover"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 uppercase text-base sm:text-xl max-w-7xl mx-auto my-8">
-          {[
-            ["YEAR", project.year],
-            ["CATEGORY", project.category],
-            ["CLIENT", project.client],
-            ["SQFT", project.sqft],
-          ].map(([label, value]) => (
-            <div
-              key={label}
-              className="flex flex-col justify-center items-center"
-            >
-              <span className="font-bold">{label}</span>
-              <span>{value}</span>
-            </div>
-          ))}
+        <div className="text-center flex justify-center items-center w-full">
+
+          <div className="flex justify-center items-center w-full text-base sm:text-xl max-w-7xl mx-auto my-8">
+            {[
+              ["Location", project.location],
+              ["Year", project.year],
+              ["SQFT", project.sqft],
+            ].map(([label, value]) => (
+              <div
+                key={label}
+                className={`flex flex-col justify-center text-left items-center px-10 md:px-40  ${label !== 'SQFT' ? 'border-r border-black/60 ' : 'border-r-0'} `}
+              >
+                <div className="flex flex-col justify-center items-start">
+
+                  <span className="font-bold">{label}</span>
+                  <span>{value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.section>
 
       {/* Description Section */}
       <motion.section
         {...fadeIn}
-        className="my-20 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-10 md:space-x-12"
+        className="my-20 flex flex-col sm:flex-row justify-center w-full max-w-[1400px] items-center space-y-4 sm:space-y-0 sm:space-x-10 md:space-x-12"
       >
-        <Image
-          src="/assets/projects/up-arrow.png"
-          alt=""
-          width={40}
-          height={40}
-          className="hidden sm:block rotate-180 w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-28 xl:h-28"
-        />
-        <p className="mb-4 w-full  font-primary leading-loose text-sm sm:text-xl">
-          {project.description1}
-        </p>
+        <div className="flex flex-col gap-8 w-full" >
+            {
+              project.descriptions?.map((description, index) => (
+                <p key={index} className=" w-full  font-primary leading-loose text-sm sm:text-xl">
+                  {description}
+                </p>
+              ))
+            }
+         
+        </div>
       </motion.section>
 
       {/* Mobile Carousel */}
@@ -113,7 +116,7 @@ export default function Page({ params }) {
       {/* Desktop Grid */}
       <motion.div
         {...fadeIn}
-        className="hidden sm:grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-14 mb-32"
+        className="hidden sm:grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-14 mb-32"
       >
         {project.images.map((src, idx) => (
           <div
@@ -161,50 +164,35 @@ export default function Page({ params }) {
         </div>
       )}
 
-      <section className="mb-32">
-        <p className="text-sm sm:text-xl font-primary text-secondary leading-loose text-justify px-6 md:px-52">
-          {project.description2}
-        </p>
-      </section>
-      <div className="-mx-4 sm:-mx-6 lg:-mx-20 mb-10">
+
+      {/* <div className="-mx-4 sm:-mx-6 lg:-mx-20 mb-10">
         <img
           src={project.endImage}
           alt={project.title}
           className="w-screen max-w-none h-auto object-cover"
         />
-      </div>
+      </div> */}
 
       {/* Navigation Section */}
-      <section className="flex flex-row justify-center items-center gap-6 mb-12">
+      <section className="flex flex-row justify-around items-center gap-6 mb-12">
         <div
           onClick={() => router.push(project.prevRoute)}
           className="relative cursor-pointer group"
         >
-          <img
-            src={project.prevImage}
-            alt="Previous Project"
-            className="w-32 sm:w-40 md:w-[20vw] h-auto mx-auto"
+          <ButtonRedirect
+          className="px-12 py-2 border-black  transition text-sm sm:text-base"
+            label="< Previous Project"
           />
-          <div className="absolute inset-0 bg-secondary bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <span className="text-sm sm:text-base md:text-lg text-center font-primary font-bold text-primary text-wrap">
-              Previous Project
-            </span>
-          </div>
         </div>
         <div
           onClick={() => router.push(project.nextRoute)}
           className="relative cursor-pointer group"
         >
-          <img
-            src={project.nextImage}
-            alt="Next Project"
-            className="w-32 sm:w-40 md:w-[20vw] h-auto mx-auto"
+          <ButtonRedirect
+          className="px-12 py-2 border-black  transition text-sm sm:text-base"
+            label="Next Project >"
+
           />
-          <div className="absolute inset-0 bg-secondary bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <span className="text-sm sm:text-base md:text-lg text-center font-primary font-bold text-primary text-wrap">
-              Next Project
-            </span>
-          </div>
         </div>
       </section>
 
