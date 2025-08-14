@@ -73,7 +73,7 @@ export default function Carrusel({
   }, [paginate, current, slides.length, IMAGE_TRANSITION]);
 
   return (
-    <div className={`relative w-full h-screen overflow-hidden ${className}`}>
+    <div className={`relative w-full h-screen overflow-hidden flex justify-center items-center ${className}`}>
       <AnimatePresence custom={direction} initial={false}>
         {slides.map((slide, idx) => {
           if (idx !== current) return null;
@@ -168,7 +168,7 @@ export default function Carrusel({
         }}
       />
 
-      <div className='w-full max-w-[1400px] h-screen flex relative right-0'>
+      <div className='w-full max-w-[1400px] h-screen flex relative  justify-center items-center right-0'>
 
         <RedesSociales
           className={"absolute py-32  px-10 xl:px-0 z-10 right-0 bottom-0 flex"}

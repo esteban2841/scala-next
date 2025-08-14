@@ -53,53 +53,56 @@ export default function TabMenu({ className = "", style = "secondary" }) {
   return (
     <>
       {/* Botón hamburguesa / cerrar */}
-      <div className={` ${className} flex w-full text-base justify-between items-center  max-w-[1400px]`}>
-        {
-          isLogoDark ? (
-            <Image
-              src="/assets/logos/scala_logo_v1_black.svg"
-              alt="Scala Logo"
-              width={50}
-              height={50}
-              className="h-14 sm:h-14 md:h-17 lg:h-20 w-32"
-            />
-          ) : (
-            <Image
-              src="/assets/logos/scala_logo_v1_white.svg"
-              alt="Scala Logo"
-              width={50}
-              height={50}
-              className="h-14 sm:h-14 md:h-17 lg:h-20 w-32"
-            />
-          )
-        }
+      <div className={` ${className} flex w-full lg:px-4 text-base px-10 justify-center items-center ${pathname === "/" && "absolute top-0 z-50 "} `}>
+        <div className="w-full flex items-center lg:h-[140px] justify-between max-w-[1400px]">
 
-        {
-          isOpen ? 
-            <div
-              onClick={toggleMenu}
-              className={`relative text-${style} ${
-                isOpen ? "text-white" : ""
-              } filter z-50 hover:brightness-90 w-8 hover:scale-[1.05] transition-transform duration-300`}
-            >
+          {
+            isLogoDark ? (
+              <Image
+                src="/assets/logos/scala_logo_v1_black.svg"
+                alt="Scala Logo"
+                width={50}
+                height={50}
+                className="h-14 sm:h-14 md:h-17 lg:h-20 w-32"
+              />
+            ) : (
+              <Image
+                src="/assets/logos/scala_logo_v1_white.svg"
+                alt="Scala Logo"
+                width={50}
+                height={50}
+                className="h-14 sm:h-14 md:h-17 lg:h-20 w-32"
+              />
+            )
+          }
 
-              <RxCross2 className="w-full text-2xl md:text-7xl"/>  
-            </div>
-            :
+          {
+            isOpen ? 
+              <div
+                onClick={toggleMenu}
+                className={`relative text-${style} ${
+                  isOpen ? "text-white" : ""
+                } filter z-50 hover:brightness-90 w-8 hover:scale-[1.05] transition-transform duration-300`}
+              >
 
-            <div
-              onClick={toggleMenu}
-              className={`relative text-${style} ${
-                isOpen ? "text-white" : ""
-              } filter z-50 hover:brightness-90 w-8 hover:scale-[1.05] transition-transform duration-300`}
-            >
+                <RxCross2 className="w-full text-2xl md:text-7xl"/>  
+              </div>
+              :
+
+              <div
+                onClick={toggleMenu}
+                className={`relative text-${style} ${
+                  isOpen ? "text-white" : ""
+                } filter z-50 hover:brightness-90 w-8 hover:scale-[1.05] transition-transform duration-300`}
+              >
 
 
-              <RxHamburgerMenu className="w-full text-2xl md:text-7xl"/>  
-              
-            </div>
+                <RxHamburgerMenu className="w-full text-2xl md:text-7xl"/>  
+                
+              </div>
 
-        }
+          }
+        </div>
       </div>
 
       {/* Overlay + drawer */}
